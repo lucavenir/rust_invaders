@@ -35,10 +35,9 @@ impl Shot {
     }
 
     pub fn dead(&self) -> bool {
-      (self.exploding && self.timer.ready) || (self.y == 0)
+        (self.exploding && self.timer.ready) || (self.y == 0)
     }
 }
-
 
 impl Drawable for Shot {
     fn draw(&self, frame: &mut Frame) {

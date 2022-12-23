@@ -6,11 +6,18 @@ use crossterm::{
 };
 use rust_invaders::{
     frame::{self, new_frame, Drawable},
+    invaders::Invaders,
     player::Player,
-    render, invaders::Invaders,
+    render,
 };
 use rusty_audio::Audio;
-use std::{error::Error, io, sync::mpsc, thread, time::{Duration, Instant}};
+use std::{
+    error::Error,
+    io,
+    sync::mpsc,
+    thread,
+    time::{Duration, Instant},
+};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let mut audio = Audio::new();
@@ -65,11 +72,11 @@ fn main() -> Result<(), Box<dyn Error>> {
                         if player.shoot() {
                             audio.play("pew");
                         }
-                    },
+                    }
                     KeyCode::Esc | KeyCode::Char('q') => {
                         audio.play("lose");
                         break 'gameloop;
-                    },
+                    }
                     _ => {}
                 }
             }
