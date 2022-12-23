@@ -15,7 +15,7 @@ impl Shot {
         Self {
             x,
             y,
-            exploding: true,
+            exploding: false,
             timer: Timer::from_millis(50),
         }
     }
@@ -23,7 +23,7 @@ impl Shot {
         self.timer.update(delta);
         if self.timer.ready && !self.exploding {
             if self.y > 0 {
-                self.y += 1;
+                self.y -= 1;
             }
             self.timer.reset();
         }
